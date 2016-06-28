@@ -1,0 +1,20 @@
+FROM alpine:3.3
+MAINTAINER pitrho
+
+RUN apk update \
+  && apk add --update ca-certificates bash curl \
+  && update-ca-certificates \
+  && rm -rf /var/cache/apk/* /tmp/*
+
+# Install the logentries appender
+RUN mkdir config \
+  && wget -O /config/logentries-appender.jar http://search.maven.org/remotecontent?filepath=com/logentries/logentries-appender/%%LOGENTRIES_APPENDER_VERSION%%/logentries-appender-%%LOGENTRIES_APPENDER_VERSION%%.jar
+
+# Copy the log4j config and queries file
+COPY log4j_logentries.xml queries.json run.sh /config/
+RUN chmod +x /config/run.sh
+
+# default logs dir
+VOLUME ["/config"]
+
+CMD /config/run.sh

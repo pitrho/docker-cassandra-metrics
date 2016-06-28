@@ -1,0 +1,351 @@
+{
+    "servers": [
+        {
+            "port": %%JMX_PORT%%,
+            "host": "%%JMX_HOST%%",
+            "username" : "%%JMX_USERNAME%%",
+            "password" : "%%JMX_PASSWORD%%",
+            "queries": [
+                {
+                    "outputWriters": [
+                        {
+                            "@class": "com.googlecode.jmxtrans.model.output.Log4JWriter"
+                        }
+                    ],
+                    "obj": "org.apache.cassandra.metrics:type=ClientRequest,scope=Read,name=Latency",
+                    "resultAlias": "ReadThroughput",
+                    "attr": [
+                        "OneMinuteRate"
+                    ]
+                },
+                {
+                    "outputWriters": [
+                        {
+                            "@class": "com.googlecode.jmxtrans.model.output.Log4JWriter"
+                        }
+                    ],
+                    "obj": "org.apache.cassandra.metrics:type=ClientRequest,scope=Write,name=Latency",
+                    "resultAlias": "WriteThroughput",
+                    "attr": [
+                        "OneMinuteRate"
+                    ]
+                },
+                {
+                    "outputWriters": [
+                        {
+                            "@class": "com.googlecode.jmxtrans.model.output.Log4JWriter"
+                        }
+                    ],
+                    "obj": "org.apache.cassandra.metrics:type=ClientRequest,scope=Read,name=Latency",
+                    "resultAlias": "ReadLatency",
+                    "attr": [
+                        "Count"
+                    ]
+                },
+                {
+                    "outputWriters": [
+                        {
+                            "@class": "com.googlecode.jmxtrans.model.output.Log4JWriter"
+                        }
+                    ],
+                    "obj": "org.apache.cassandra.metrics:type=ClientRequest,scope=Read,name=TotalLatency",
+                    "resultAlias": "TotalReadLatency",
+                    "attr": [
+                        "Count"
+                    ]
+                },
+                {
+                    "outputWriters": [
+                        {
+                            "@class": "com.googlecode.jmxtrans.model.output.Log4JWriter"
+                        }
+                    ],
+                    "obj": "org.apache.cassandra.metrics:type=ClientRequest,scope=Write,name=Latency",
+                    "resultAlias": "WriteLatency",
+                    "attr": [
+                        "Count"
+                    ]
+                },
+                {
+                    "outputWriters": [
+                        {
+                            "@class": "com.googlecode.jmxtrans.model.output.Log4JWriter"
+                        }
+                    ],
+                    "obj": "org.apache.cassandra.metrics:type=ClientRequest,scope=Write,name=TotalLatency",
+                    "resultAlias": "TotalWriteLatency",
+                    "attr": [
+                        "Count"
+                    ]
+                },
+                {
+                    "outputWriters": [
+                        {
+                            "@class": "com.googlecode.jmxtrans.model.output.Log4JWriter"
+                        }
+                    ],
+                    "obj": "org.apache.cassandra.metrics:type=Cache,scope=KeyCache,name=Hits",
+                    "resultAlias": "CacheHits",
+                    "attr": [
+                        "Count"
+                    ]
+                },
+                {
+                    "outputWriters": [
+                        {
+                            "@class": "com.googlecode.jmxtrans.model.output.Log4JWriter"
+                        }
+                    ],
+                    "obj": "org.apache.cassandra.metrics:type=Cache,scope=KeyCache,name=Requests",
+                    "resultAlias": "CacheRequests",
+                    "attr": [
+                        "Count"
+                    ]
+                },
+                {
+                    "outputWriters": [
+                        {
+                            "@class": "com.googlecode.jmxtrans.model.output.Log4JWriter"
+                        }
+                    ],
+                    "obj": "org.apache.cassandra.metrics:type=Storage,name=Load",
+                    "resultAlias": "StorageLoad",
+                    "attr": [
+                        "Count"
+                    ]
+                },
+                {
+                    "outputWriters": [
+                        {
+                            "@class": "com.googlecode.jmxtrans.model.output.Log4JWriter"
+                        }
+                    ],
+                    "obj": "org.apache.cassandra.metrics:type=Compaction,name=CompletedTasks",
+                    "resultAlias": "CompactionCompletedTasks",
+                    "attr": [
+                        "Value"
+                    ]
+                },
+                {
+                    "outputWriters": [
+                        {
+                            "@class": "com.googlecode.jmxtrans.model.output.Log4JWriter"
+                        }
+                    ],
+                    "obj": "org.apache.cassandra.metrics:type=Compaction,name=PendingTasks",
+                    "resultAlias": "CompactionPendingTasks",
+                    "attr": [
+                        "Value"
+                    ]
+                },
+                {
+                    "outputWriters": [
+                        {
+                            "@class": "com.googlecode.jmxtrans.model.output.Log4JWriter"
+                        }
+                    ],
+                    "obj": "java.lang:type=GarbageCollector,name=ParNew",
+                    "resultAlias": "ParNewGC",
+                    "attr": [
+                        "CollectionCount",
+                        "CollectionTime"
+                    ]
+                },
+                {
+                    "outputWriters": [
+                        {
+                            "@class": "com.googlecode.jmxtrans.model.output.Log4JWriter"
+                        }
+                    ],
+                    "obj": "java.lang:type=GarbageCollector,name=ConcurrentMarkSweep",
+                    "resultAlias": "ConcurrentMarkSweepGC",
+                    "attr": [
+                        "CollectionCount",
+                        "CollectionTime"
+                    ]
+                },
+                {
+                    "outputWriters": [
+                        {
+                            "@class": "com.googlecode.jmxtrans.model.output.Log4JWriter"
+                        }
+                    ],
+                    "obj": "org.apache.cassandra.metrics:type=Storage,name=Exceptions",
+                    "resultAlias": "StorageExceptions",
+                    "attr": [
+                        "Count"
+                    ]
+                },
+                {
+                    "outputWriters": [
+                        {
+                            "@class": "com.googlecode.jmxtrans.model.output.Log4JWriter"
+                        }
+                    ],
+                    "obj": "org.apache.cassandra.metrics:type=ClientRequest,scope=Read,name=Timeouts",
+                    "resultAlias": "ReadTimeouts",
+                    "attr": [
+                        "Count"
+                    ]
+                },
+                {
+                    "outputWriters": [
+                        {
+                            "@class": "com.googlecode.jmxtrans.model.output.Log4JWriter"
+                        }
+                    ],
+                    "obj": "org.apache.cassandra.metrics:type=ClientRequest,scope=Write,name=Timeouts",
+                    "resultAlias": "WriteTimeouts",
+                    "attr": [
+                        "Count"
+                    ]
+                },
+                {
+                    "outputWriters": [
+                        {
+                            "@class": "com.googlecode.jmxtrans.model.output.Log4JWriter"
+                        }
+                    ],
+                    "obj": "org.apache.cassandra.metrics:type=ClientRequest,scope=Read,name=Unavailables",
+                    "resultAlias": "ReadUnavailableExceptions",
+                    "attr": [
+                        "Count"
+                    ]
+                },
+                {
+                    "outputWriters": [
+                        {
+                            "@class": "com.googlecode.jmxtrans.model.output.Log4JWriter"
+                        }
+                    ],
+                    "obj": "org.apache.cassandra.metrics:type=ClientRequest,scope=Write,name=Unavailables",
+                    "resultAlias": "WriteUnavailableExceptions",
+                    "attr": [
+                        "Count"
+                    ]
+                },
+                {
+                    "outputWriters": [
+                        {
+                            "@class": "com.googlecode.jmxtrans.model.output.Log4JWriter"
+                        }
+                    ],
+                    "obj": "org.apache.cassandra.metrics:type=ThreadPools,path=request,scope=CounterMutationStage,name=PendingTasks",
+                    "resultAlias": "PendingTasks-CounterMutationStage",
+                    "attr": [
+                        "Value"
+                    ]
+                },
+                {
+                    "outputWriters": [
+                        {
+                            "@class": "com.googlecode.jmxtrans.model.output.Log4JWriter"
+                        }
+                    ],
+                    "obj": "org.apache.cassandra.metrics:type=ThreadPools,path=request,scope=MutationStage,name=PendingTasks",
+                    "resultAlias": "PendingTasks-MutationStage",
+                    "attr": [
+                        "Value"
+                    ]
+                },
+                {
+                    "outputWriters": [
+                        {
+                            "@class": "com.googlecode.jmxtrans.model.output.Log4JWriter"
+                        }
+                    ],
+                    "obj": "org.apache.cassandra.metrics:type=ThreadPools,path=request,scope=ReadRepairStage,name=PendingTasks",
+                    "resultAlias": "PendingTasks-ReadRepairStage",
+                    "attr": [
+                        "Value"
+                    ]
+                },
+                {
+                    "outputWriters": [
+                        {
+                            "@class": "com.googlecode.jmxtrans.model.output.Log4JWriter"
+                        }
+                    ],
+                    "obj": "org.apache.cassandra.metrics:type=ThreadPools,path=request,scope=ReadStage,name=PendingTasks",
+                    "resultAlias": "PendingTasks-ReadStage",
+                    "attr": [
+                        "Value"
+                    ]
+                },
+                {
+                    "outputWriters": [
+                        {
+                            "@class": "com.googlecode.jmxtrans.model.output.Log4JWriter"
+                        }
+                    ],
+                    "obj": "org.apache.cassandra.metrics:type=ThreadPools,path=request,scope=RequestResponseStage,name=PendingTasks",
+                    "resultAlias": "PendingTasks-RequestResponseStage",
+                    "attr": [
+                        "Value"
+                    ]
+                },
+                {
+                    "outputWriters": [
+                        {
+                            "@class": "com.googlecode.jmxtrans.model.output.Log4JWriter"
+                        }
+                    ],
+                    "obj": "org.apache.cassandra.metrics:type=ThreadPools,path=request,scope=CounterMutationStage,name=BlockedTasks",
+                    "resultAlias": "BlockedTasks-CounterMutationStage",
+                    "attr": [
+                        "Value"
+                    ]
+                },
+                {
+                    "outputWriters": [
+                        {
+                            "@class": "com.googlecode.jmxtrans.model.output.Log4JWriter"
+                        }
+                    ],
+                    "obj": "org.apache.cassandra.metrics:type=ThreadPools,path=request,scope=MutationStage,name=BlockedTasks",
+                    "resultAlias": "BlockedTasks-MutationStage",
+                    "attr": [
+                        "Value"
+                    ]
+                },
+                {
+                    "outputWriters": [
+                        {
+                            "@class": "com.googlecode.jmxtrans.model.output.Log4JWriter"
+                        }
+                    ],
+                    "obj": "org.apache.cassandra.metrics:type=ThreadPools,path=request,scope=ReadRepairStage,name=BlockedTasks",
+                    "resultAlias": "BlockedTasks-ReadRepairStage",
+                    "attr": [
+                        "Value"
+                    ]
+                },
+                {
+                    "outputWriters": [
+                        {
+                            "@class": "com.googlecode.jmxtrans.model.output.Log4JWriter"
+                        }
+                    ],
+                    "obj": "org.apache.cassandra.metrics:type=ThreadPools,path=request,scope=ReadStage,name=BlockedTasks",
+                    "resultAlias": "BlockedTasks-ReadStage",
+                    "attr": [
+                        "Value"
+                    ]
+                },
+                {
+                    "outputWriters": [
+                        {
+                            "@class": "com.googlecode.jmxtrans.model.output.Log4JWriter"
+                        }
+                    ],
+                    "obj": "org.apache.cassandra.metrics:type=ThreadPools,path=request,scope=RequestResponseStage,name=BlockedTasks",
+                    "resultAlias": "BlockedTasks-RequestResponseStage",
+                    "attr": [
+                        "Value"
+                    ]
+                }
+            ],
+            "numQueryThreads": 10
+        }
+    ]
+}
