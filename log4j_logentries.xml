@@ -7,7 +7,7 @@
         </layout>
     </appender>
     <appender name="LogentriesAppender" class="com.logentries.log4j.LogentriesAppender">
-        <param name="Token" value="${logentries.token}"/>
+        <param name="Token" value="%%CASSANDRA_METRICS_LOGENTRIES_TOKEN%%"/>
         <param name="Ssl" value="false"/>
         <layout class="org.apache.log4j.PatternLayout">
             <param name="ConversionPattern" value="[%d{dd MMM yyyy HH:mm:ss}] server:%X{server} metric:%X{metric} attribute:%X{attributeName} key:%X{key} resultAlias:%X{resultAlias} value:%X{value} %m"/>
